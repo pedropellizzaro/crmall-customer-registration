@@ -1,0 +1,88 @@
+<form class="form-horizontal mt-3 needs-validation" novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-row" [ngClass]="aplicarCssErro('name')">
+    <div class="form-group col-sm-5">
+      <label for="name" class="control-label">Nome</label>
+      <input type="text" class="form-control" formControlName="name"
+      id="name" placeholder="Nome do cliente" [ngClass]="{ 'is-invalid': verificarValidTouched('name') }"/>
+
+      <app-campo-control-erro
+        [mostrarErro]="verificarValidTouched('name')"
+        msgErro="O nome é obrigatório.">
+      </app-campo-control-erro>
+    </div>
+
+    <div class="form-group col-sm-3" [ngClass]="aplicarCssErro('birthDate')">
+      <label for="birthDate" class="control-label">Data de Nascimento</label>
+      <input type="date" class="form-control" formControlName="birthDate"
+      id="birthDate" [ngClass]="{ 'is-invalid': verificarValidTouched('birthDate') }"/>
+
+      <app-campo-control-erro
+        [mostrarErro]="verificarValidTouched('birthDate')"
+        msgErro="Data de nascimento obrigatória.">
+      </app-campo-control-erro>
+    </div>
+
+    <div class="form-group">
+      <div class="form-check form-check-inline" [ngClass]="aplicarCssErro('gender')">
+        <div id="gender" class="row">
+          <div class="col-md-4" *ngFor="let gender of genders">
+            <label class="form-check-label">
+              <input class="form-check-input" [value]="gender.value" type="radio" formControlName="gender"/> {{gender.desc}}
+              <app-campo-control-erro
+                [mostrarErro]="verificarValidTouched('gender')"
+                msgErro="Informe o sexo.">
+              </app-campo-control-erro>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-3" [ngClass]="aplicarCssErro('zipCode')">
+      <label for="zipCode">CEP</label>
+      <input type="text" class="form-control" id="zipCode" placeholder="Somente números"
+      formControlName="zipCode" (blur)="consultarCEP()">
+      <app-campo-control-erro
+      [mostrarErro]="form.get('zipCode')!.hasError('cepInvalido')" msgErro="O CEP informado é inválido.">
+    </app-campo-control-erro>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="number">Número</label>
+      <input type="number" class="form-control" id="number" formControlName="number">
+    </div>
+    <div class="form-group col-md-7">
+      <label for="complement">Complemento</label>
+      <input type="text" class="form-control" id="complement" formControlName="complement">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="address" class="control-label">Rua</label>
+    <input type="text" class="form-control" id="address" formControlName="address"/>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-md-5">
+      <label for="area" class="control-label">Bairro</label>
+      <input type="text" class="form-control" id="area" formControlName="area"/>
+    </div>
+
+    <div class="col-md-4">
+      <label for="city" class="control-label">Cidade</label>
+      <input disabled type="text" class="form-control" id="city" formControlName="city"/>
+    </div>
+
+    <div class="col-md-3">
+      <label for="state" class="control-label">Estado</label>
+      <input disabled type="text" class="form-control" id="state" formControlName="state"/>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Cadastrar</button>
+  <button type="button" class="btn btn-danger" (click)="onCancel()">Limpar</button>
+  <button type="button" class="btn btn-warning" (click)="onBack()">Voltar</button>
+
+  <app-form-debug [form]="form"></app-form-debug>
+</form>

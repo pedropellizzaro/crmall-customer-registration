@@ -19,7 +19,7 @@ namespace CustomerRegistration.Infrastructure.Data.Migrations
                     Gender = table.Column<string>(type: "char(1) CHARACTER SET utf8mb4", fixedLength: true, maxLength: 1, nullable: false),
                     ZipCode = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
                     Address = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
-                    Number = table.Column<int>(type: "int", nullable: false),
+                    Number = table.Column<int>(type: "int", nullable: true),
                     Complement = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
                     Area = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
                     State = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),

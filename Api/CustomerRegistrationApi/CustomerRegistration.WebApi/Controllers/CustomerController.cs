@@ -46,7 +46,7 @@ namespace CustomerRegistration.WebApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<CustomerViewModel> Post([FromBody] CustomerViewModel customer)
+        public ActionResult<CustomerViewModel> Post( CustomerViewModel customer)
         {
             _customerService.Add(customer);
 

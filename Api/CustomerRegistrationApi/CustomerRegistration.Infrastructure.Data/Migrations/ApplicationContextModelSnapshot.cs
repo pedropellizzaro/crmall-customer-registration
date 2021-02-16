@@ -49,7 +49,7 @@ namespace CustomerRegistration.Infrastructure.Data.Migrations
                         .HasMaxLength(80)
                         .HasColumnType("varchar(80) CHARACTER SET utf8mb4");
 
-                    b.Property<int>("Number")
+                    b.Property<int?>("Number")
                         .HasColumnType("int");
 
                     b.Property<string>("State")

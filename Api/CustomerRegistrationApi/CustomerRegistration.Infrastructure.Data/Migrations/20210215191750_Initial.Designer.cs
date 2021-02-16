@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CustomerRegistration.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20210214174906_Initial")]
+    [Migration("20210215191750_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,7 +51,7 @@ namespace CustomerRegistration.Infrastructure.Data.Migrations
                         .HasMaxLength(80)
                         .HasColumnType("varchar(80) CHARACTER SET utf8mb4");
 
-                    b.Property<int>("Number")
+                    b.Property<int?>("Number")
                         .HasColumnType("int");
 
                     b.Property<string>("State")

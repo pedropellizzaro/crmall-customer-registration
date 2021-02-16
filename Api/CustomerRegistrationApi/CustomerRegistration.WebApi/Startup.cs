@@ -28,11 +28,18 @@ namespace CustomerRegistration.WebApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CustomerRegistration.WebApi", Version = "v1" });
             });
+
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(options =>
+                options.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -26,6 +26,7 @@ namespace CustomerRegistration.Application.Services
         #region Public Methods
         public void Add(CustomerViewModel model)
         {
+            model.BirthDate.ToShortDateString();
             var customerMap = _mapper.Map<Customer>(model);
             _customerRepository.Add(customerMap);
         }
