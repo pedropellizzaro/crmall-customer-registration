@@ -6,7 +6,7 @@ import { CustomerService } from 'src/app/shared/services/customer.service';
 import { DropdownService } from 'src/app/shared/services/dropdown.service';
 import { ToastrService } from 'ngx-toastr';
 import { Location } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -26,7 +26,8 @@ export class FormComponent implements OnInit {
     private customerService: CustomerService,
     private toastrService: ToastrService,
     private location: Location,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -75,7 +76,7 @@ export class FormComponent implements OnInit {
   }
 
   onBack() {
-    this.location.back();
+    this.router.navigate(['clientes']);
   }
 
   verificarValidTouched(field: string) {
