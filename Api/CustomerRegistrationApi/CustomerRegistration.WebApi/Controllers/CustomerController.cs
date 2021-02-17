@@ -75,10 +75,6 @@ namespace CustomerRegistration.WebApi.Controllers
             if (id is null)
                 return NotFound(MENSAGEM_CLIENTE_NÃO_ENCONTRADO);
 
-            var customer = _customerService.Get(id).Result;
-            if (customer is null )
-                return NotFound(MENSAGEM_CLIENTE_NÃO_ENCONTRADO);
-
             _customerService.Remove(id);
 
             return NoContent();
