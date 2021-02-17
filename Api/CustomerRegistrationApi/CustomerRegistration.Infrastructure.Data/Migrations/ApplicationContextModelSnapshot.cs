@@ -19,7 +19,7 @@ namespace CustomerRegistration.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("CustomerRegistration.Domain.Entities.Customer", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 

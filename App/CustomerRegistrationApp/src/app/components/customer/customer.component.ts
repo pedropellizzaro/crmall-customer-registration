@@ -22,7 +22,7 @@ export class CustomerComponent implements OnInit {
 
   customers$: Observable<Customer[]>;
   error$ = new Subject<boolean>();
-
+  
   constructor(
     private customerService: CustomerService,
     private spinner: NgxSpinnerService,

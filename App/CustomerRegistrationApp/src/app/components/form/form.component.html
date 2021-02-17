@@ -13,14 +13,14 @@
 
     <div class="form-group col-sm-3" [ngClass]="aplicarCssErro('birthDate')">
       <label for="birthDate" class="control-label">Data de Nascimento</label>
-      <input type="date" class="form-control" formControlName="birthDate"
+      <input type="datetime-local" class="form-control" formControlName="birthDate"
       id="birthDate" [ngClass]="{ 'is-invalid': verificarValidTouched('birthDate') }"/>
 
       <app-campo-control-erro
         [mostrarErro]="verificarValidTouched('birthDate')"
         msgErro="Data de nascimento obrigatória.">
       </app-campo-control-erro>
-    </div>
+    </div>&nbsp;
 
     <div class="form-group">
       <div class="form-check form-check-inline" [ngClass]="aplicarCssErro('gender')">
@@ -80,8 +80,8 @@
     </div>
   </div>
 
-  <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Cadastrar</button>
-  <button type="button" class="btn btn-danger" (click)="onCancel()">Limpar</button>
+  <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Cadastrar</button>&nbsp;
+  <button type="button" class="btn btn-danger" (click)="onCancel()">Limpar</button>&nbsp;
   <button type="button" class="btn btn-warning" (click)="onBack()">Voltar</button>
 
   <app-form-debug [form]="form"></app-form-debug>

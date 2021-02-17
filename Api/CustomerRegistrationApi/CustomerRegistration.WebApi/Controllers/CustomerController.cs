@@ -46,10 +46,9 @@ namespace CustomerRegistration.WebApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<CustomerViewModel> Post( CustomerViewModel customer)
+        public ActionResult<CustomerViewModel> Post([FromBody] CustomerViewModel customer)
         {
             _customerService.Add(customer);
-
             return CreatedAtAction(nameof(Get), new { id = customer.Id }, customer);
         }
 
@@ -76,7 +75,7 @@ namespace CustomerRegistration.WebApi.Controllers
             if (id is null)
                 return NotFound(MENSAGEM_CLIENTE_NÃO_ENCONTRADO);
 
-            var customer = _customerService.Get(id);
+            var customer = _customerService.Get(id).Result;
             if (customer is null )
                 return NotFound(MENSAGEM_CLIENTE_NÃO_ENCONTRADO);
 
