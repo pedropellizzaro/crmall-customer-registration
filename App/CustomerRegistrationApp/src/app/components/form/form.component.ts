@@ -11,7 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  styleUrls: ['./form.component.css'],
+  preserveWhitespaces: true
 })
 export class FormComponent implements OnInit {
 
